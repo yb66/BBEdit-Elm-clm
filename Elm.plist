@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BBEditDocumentType</key>
+	<string>CodelessLanguageModule</string>
+	<key>BBLMColorsSyntax</key>
+	<true/>
+	<key>BBLMIsCaseSensitive</key>
+	<true/>
+	<key>BBLMLanguageCode</key>
+	<string>Elml</string>
+	<key>BBLMLanguageDisplayName</key>
+	<string>Elm</string>
+	<key>BBLMSuffixMap</key>
+	<array>
+		<dict>
+			<key>BBLMLanguageSuffix</key>
+			<string>.elm</string>
+			<key>BBLMPreferredFilenameExtension</key>
+			<string>.elm</string>
+		</dict>
+	</array>
+  <key>BBLMCommentLineDefault</key>
+  <string>-- </string>
+  <key>BBLMCommentPrefixDefault</key>
+  <string>{-</string>
+  <key>BBLMCommentSuffixDefault</key>
+  <string>-}</string>
+  <key>Open Block Comments</key>
+  <string>{-</string>
+  <key>Open Line Comments</key>
+  <string>-- </string>
+  <key>Close Block Comments</key>
+  <string>-}</string>
+
+	<key>BBLMScansFunctions</key>
+	<true/>
+  <key>Function Pattern</key>
+  <string><![CDATA[
+  (?x:                            # Verbose
+    (?P<function>
+      (?:                         # Note: type sig expected first!
+        (?P<function_name> ^\w+ ) # name
+        \s+ : \s+                 # start of types
+        (?:
+          [A-Z][a-z]+             # Type, e.g. String
+          (?: \s+ [a-z]+ )?       # little type, e.g. List a
+        )
+        (?:                       # extra args
+          \s+
+          (?: \-\>\s+ )?          # e.g. -> Maybe
+          [A-Z][a-z]+             # same as above with Type
+          (?: \s+ [a-z]+ )?       # and little type
+        )*$                       # repeat till end
+      )\n
+      (?s)                        # single line (dotall) on
+      ^.+?\n$                     # method body
+      (?-s)                       # single line (dotall) off
+      (?=\n$\n|\Z)                # 2 line breaks or eof follows
+    )
+  )]]>
+  </string>
+
+  <key>BBLMKeywordList</key>
+  <array>
+    <string>module</string>
+    <string>import</string>
+    <string>where</string>
+    <string>class</string>
+    <string>instance</string>
+    <string>type</string>
+    <string>alias</string>
+    <string>newtype</string>
+    <string>data</string>
+    <string>do</string>
+    <string>case</string>
+    <string>of</string>
+    <string>let</string>
+    <string>in</string>
+    <string>if</string>
+    <string>then</string>
+    <string>else</string>
+  </array>
+
+	<key>Language Features</key>
+	<dict>
+		<key>Close Strings 1</key>
+		<string>"</string>
+		<key>Close Strings 2</key>
+		<string>'</string>
+		<key>Escape Char in Strings 1</key>
+		<string>\</string>
+		<key>Escape Char in Strings 2</key>
+		<string>\</string>
+		<key>Identifier and Keyword Character Class</key>
+		<string>a-zA-Z0-9_</string>
+		<key>Open Strings 1</key>
+		<string>"</string>
+		<key>Open Strings 2</key>
+		<string>'</string>
+	</dict>
+</dict>
+</plist>
