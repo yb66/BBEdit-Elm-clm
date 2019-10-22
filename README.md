@@ -4,7 +4,7 @@ The beginnings of one, anyway. Feel free to improve on it, and please let me kno
 
 ## What does it do?
 
-It provides a bit of syntax highlighting and commenting ability for ([Elm](https://elm-lang.org/), in [BBEdit](https://www.barebones.com/support/bbedit/).
+It provides a bit of syntax highlighting and commenting ability for [Elm](https://elm-lang.org/) in [BBEdit](https://www.barebones.com/support/bbedit/).
 
 ## Why?
 
